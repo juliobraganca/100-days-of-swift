@@ -1,8 +1,9 @@
 # 100 days of swift
 
-> Status: Day 11 of 100 - Learning the Fundamentals
+> Status: Day 13 of 100 - Consolidating the Fundamentals
 
-The following projects are already concluded:
+The following contents are already included:
 
 ```
-N/A
+Day 001 - 015 - Fundamentals + Consolidation 
+```
