@@ -1,9 +1,4 @@
-// Day 001 - 015 - Foundation and Consolidation
-
-
 import UIKit
-
-// MARK: Day 13 - Consolidation 1
 
 // MARK: 1. VARIABLES AND CONSTANTS
 
@@ -24,6 +19,3 @@ let name2 = "Tim McGrow"
 
 var name3 = "Tim McGraw"
 // ERROR: var name3 = "Romeo"
-
-// MARK: 2. TYPES OF DATA
-
