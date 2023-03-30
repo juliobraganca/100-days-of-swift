@@ -1,15 +1,8 @@
-//
-<<<<<<< HEAD
 // Day 001 - 015 - Foundation and Consolidation
-=======
-# Day 001 - 015 - Foundation and Consolidation
->>>>>>> 9efee38c3f671990f296d5dfdf3e02a59f4b2019
-//
-//
+
 
 import UIKit
 
-<<<<<<< HEAD
 // MARK: Day 13 - Consolidation 1
 
 // MARK: 1. VARIABLES AND CONSTANTS
@@ -33,9 +26,4 @@ var name3 = "Tim McGraw"
 // ERROR: var name3 = "Romeo"
 
 // MARK: 2. TYPES OF DATA
-=======
-## Day 13 - Consolidation 1
-
-### 1. Variables and Constants
->>>>>>> 9efee38c3f671990f296d5dfdf3e02a59f4b2019
 
