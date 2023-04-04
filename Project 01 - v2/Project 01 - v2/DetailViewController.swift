@@ -1,8 +1,8 @@
 //
 //  DetailViewController.swift
-//  project-01
+//  Project 01 - v2
 //
-//  Created by Júlio Bragança on 03/04/23.
+//  Created by Júlio Bragança on 04/04/23.
 //
 
 import UIKit
@@ -14,20 +14,19 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = selectedImage
+        title = selectedImage //both are optional so no need to unwrap
         navigationItem.largeTitleDisplayMode = .never
 
         if let imageToLoad = selectedImage {
-            imageView.image = UIImage(named: imageToLoad)
+            imageView.image  = UIImage(named: imageToLoad)
         }
     }
     
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.hidesBarsOnTap = true
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.hidesBarsOnTap = false

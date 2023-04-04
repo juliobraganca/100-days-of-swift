@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  project-01
+//  Project 01 - v2
 //
-//  Created by Júlio Bragança on 02/04/23.
+//  Created by Júlio Bragança on 04/04/23.
 //
 
 import UIKit
