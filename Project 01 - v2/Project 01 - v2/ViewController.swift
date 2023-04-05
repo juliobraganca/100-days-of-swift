@@ -24,6 +24,7 @@ class ViewController: UITableViewController {
             if item.hasPrefix("nssl") {
                 // this is a picture to load!
                 pictures.append(item)
+                pictures.sort()
             }
         }
         
@@ -37,6 +38,8 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
         cell.textLabel?.text = pictures[indexPath.row]
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 20) // Challenge 1
+        // cell.textLabel?.adjustsFontSizeToFitWidth = true // to adjust to fit Width
         return cell
     }
     
@@ -45,6 +48,8 @@ class ViewController: UITableViewController {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             // 2: success! Set its selectedImage property
             vc.selectedImage = pictures[indexPath.row]
+            vc.selectedImagePosition = indexPath.row + 1  // challenge 3: Set values to selectedImagePosition & totalNumberOfImages. // "+1" to show human-readable index number instead of Swift index number approach
+            vc.totalPictures = pictures.count // challenge 3: total count of pictures array
 
             // 3: now push it onto the navigation controller
             navigationController?.pushViewController(vc, animated: true)
