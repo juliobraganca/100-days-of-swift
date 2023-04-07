@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     var countries = [String]()
     var score = 0
     var correctAnswer = 0
-    var questionsAsked = 8
+    var questionsAsked = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
     @IBAction func buttonTapped(_ sender: UIButton) {
         
         var title: String
-        var alertMessage: String?
+        var alertMessage: String
         
         if questionsAsked == 11{
             alertMessage = ""
