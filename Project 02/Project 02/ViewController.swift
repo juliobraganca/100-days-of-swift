@@ -15,7 +15,9 @@ class ViewController: UIViewController {
     var countries = [String]()
     var score = 0
     var correctAnswer = 0
-    var questionsAsked = 0
+    var incorrectAnswer1 = 0
+    var incorrectAnswer2 = 0
+    var questionsAsked = 9
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,17 @@ class ViewController: UIViewController {
     func askQuestion(action: UIAlertAction! = nil) {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        
+        if correctAnswer == 0{
+            incorrectAnswer1 = 1
+            incorrectAnswer2 = 2
+        } else if correctAnswer == 1{
+            incorrectAnswer1 = 0
+            incorrectAnswer2 = 2
+        } else {
+            incorrectAnswer1 = 0
+            incorrectAnswer2 = 1
+        }
         
         button1.setImage(UIImage(named: countries[0]), for: .normal)
         button2.setImage(UIImage(named: countries[1]), for: .normal)
@@ -76,38 +89,47 @@ class ViewController: UIViewController {
             if questionsAsked >= 11 {
                 title = "Correct! The game has finished. Your final score is \(score)"
                 score = 0
-                questionsAsked = 0
+                questionsAsked = 1
             }
-        } else if countries[correctAnswer] == "us"{
-            title = "Wrong. This flag is from the \(countries[correctAnswer].uppercased())!"
+        } else if sender.tag == incorrectAnswer1, countries[incorrectAnswer1] == "us" || countries[incorrectAnswer1] == "uk"{
+            title = "Wrong. This flag is from the \(countries[incorrectAnswer1].uppercased())!"
             score -= 1
             questionsAsked += 1
             if questionsAsked >= 11 {
-                title = "Wrong. This flag is from the \(countries[correctAnswer].uppercased())! The game has finished. Your final score is \(score)"
+                title = "Wrong. This flag is from the \(countries[incorrectAnswer1].uppercased())! The game has finished. Your final score is \(score)"
                 score = 0
-                questionsAsked = 0
+                questionsAsked = 1
             }
-        } else if countries[correctAnswer] == "uk"{
-            title = "Wrong. This flag is from the \(countries[correctAnswer].uppercased())!"
+        }  else if sender.tag == incorrectAnswer1{
+            title = "Wrong. This flag is from \(countries[incorrectAnswer1].capitalized)!"
             score -= 1
             questionsAsked += 1
             if questionsAsked >= 11 {
-                title = "Wrong. This flag is from the \(countries[correctAnswer].uppercased())! The game has finished. Your final score is \(score)"
+                title = "Wrong. This flag is from \(countries[incorrectAnswer1].capitalized)! The game has finished. Your final score is \(score)"
                 score = 0
                 questionsAsked = 0
             }
-        } else {
-            title = "Wrong. This flag is from \(countries[correctAnswer].capitalized)!"
+        } else if sender.tag == incorrectAnswer2, countries[incorrectAnswer2] == "us" || countries[incorrectAnswer2] == "uk"{
+            title = "Wrong. This flag is from the \(countries[incorrectAnswer2].uppercased())!"
             score -= 1
             questionsAsked += 1
             if questionsAsked >= 11 {
-                title = "Wrong. This flag is from \(countries[correctAnswer].capitalized)! The game has finished. Your final score is \(score)"
+                title = "Wrong. This flag is from the \(countries[incorrectAnswer2].uppercased())! The game has finished. Your final score is \(score)"
                 score = 0
-                questionsAsked = 0
+                questionsAsked = 1
+            }
+        }  else {
+            title = "Wrong. This flag is from \(countries[incorrectAnswer2].capitalized)!"
+            score -= 1
+            questionsAsked += 1
+            if questionsAsked >= 11 {
+                title = "Wrong. This flag is from \(countries[incorrectAnswer2].capitalized)! The game has finished. Your final score is \(score)"
+                score = 0
+                questionsAsked = 1
             }
         }
         
-        if score == 0{
+        if questionsAsked == 1{
             alertMessage = ""
         } else{
             alertMessage = "Your score is \(score)"
