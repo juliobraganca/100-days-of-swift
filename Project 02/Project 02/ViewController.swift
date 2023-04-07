@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var countries = [String]()
     var score = 0
     var correctAnswer = 0
+    var questionsAsked = 8
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,11 +48,11 @@ class ViewController: UIViewController {
         
 // title = countries[correctAnswer].uppercased() // Code from the class. I preferred to try something different.
         
-        switch countries[correctAnswer]{
+        switch countries[correctAnswer]{ //Included this code to only US and UK to be uppercased
         case "us", "uk":
-            title = countries[correctAnswer].uppercased() + " - Score (\(score))"
+            title = "Question \(questionsAsked) - " + countries[correctAnswer].uppercased() + " - Score (\(score))"
         default:
-            title = countries[correctAnswer].capitalized + " - Score (\(score))" //Included this code to only US and UK to be uppercased
+            title = "Question \(questionsAsked) - " + countries[correctAnswer].capitalized + " - Score (\(score))"
         }
         
     }
@@ -60,16 +61,59 @@ class ViewController: UIViewController {
     @IBAction func buttonTapped(_ sender: UIButton) {
         
         var title: String
+        var alertMessage: String?
+        
+        if questionsAsked == 11{
+            alertMessage = ""
+        } else{
+            alertMessage = "Your score is \(score)"
+        }
         
         if sender.tag == correctAnswer{
             title = "Correct"
             score += 1
-        } else {
-            title = "Wrong"
+            questionsAsked += 1
+            if questionsAsked >= 11 {
+                title = "Correct! The game has finished. Your final score is \(score)"
+                score = 0
+                questionsAsked = 0
+            }
+        } else if countries[correctAnswer] == "us"{
+            title = "Wrong. This flag is from the \(countries[correctAnswer].uppercased())!"
             score -= 1
+            questionsAsked += 1
+            if questionsAsked >= 11 {
+                title = "Wrong. This flag is from the \(countries[correctAnswer].uppercased())! The game has finished. Your final score is \(score)"
+                score = 0
+                questionsAsked = 0
+            }
+        } else if countries[correctAnswer] == "uk"{
+            title = "Wrong. This flag is from the \(countries[correctAnswer].uppercased())!"
+            score -= 1
+            questionsAsked += 1
+            if questionsAsked >= 11 {
+                title = "Wrong. This flag is from the \(countries[correctAnswer].uppercased())! The game has finished. Your final score is \(score)"
+                score = 0
+                questionsAsked = 0
+            }
+        } else {
+            title = "Wrong. This flag is from \(countries[correctAnswer].capitalized)!"
+            score -= 1
+            questionsAsked += 1
+            if questionsAsked >= 11 {
+                title = "Wrong. This flag is from \(countries[correctAnswer].capitalized)! The game has finished. Your final score is \(score)"
+                score = 0
+                questionsAsked = 0
+            }
         }
         
-        let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
+        if score == 0{
+            alertMessage = ""
+        } else{
+            alertMessage = "Your score is \(score)"
+        }
+        
+        let ac = UIAlertController(title: title, message: alertMessage, preferredStyle: .alert)
         
         ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
         
