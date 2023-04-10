@@ -23,6 +23,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Score",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(scoreTapped))
+
+        
         countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
         
         button1.layer.borderWidth = 1
@@ -63,9 +69,9 @@ class ViewController: UIViewController {
         
         switch countries[correctAnswer]{ //Included this code to only US and UK to be uppercased
         case "us", "uk":
-            title = "Question \(questionsAsked) - " + countries[correctAnswer].uppercased() + " - Score (\(score))"
+            title = "Question \(questionsAsked) - " + countries[correctAnswer].uppercased()// + " - Score (\(score))"
         default:
-            title = "Question \(questionsAsked) - " + countries[correctAnswer].capitalized + " - Score (\(score))"
+            title = "Question \(questionsAsked) - " + countries[correctAnswer].capitalized// + " - Score (\(score))"
         }
         
     }
@@ -140,6 +146,20 @@ class ViewController: UIViewController {
         ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
         
         present(ac, animated: true)
+    }
+    
+    @objc func scoreTapped() {
+        let message = "your score is \(score)"
+        
+        let vc = UIAlertController(title: "Score",
+                                   message: message,
+                                   preferredStyle: .alert)
+        
+        vc.addAction(UIAlertAction(title: "Continue",
+                                   style: .default,
+                                   handler: nil))
+        
+        present(vc, animated: true)
     }
 }
 
