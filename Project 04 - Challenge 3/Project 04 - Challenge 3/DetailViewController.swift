@@ -1,17 +1,18 @@
 //
-//  ViewController.swift
-//  Project 04
+//  DetailViewController.swift
+//  Project 04 - Challenge 3
 //
-//  Created by Júlio Bragança on 10/04/23.
+//  Created by Júlio Bragança on 12/04/23.
 //
 
 import UIKit
 import WebKit // new framework that is used for webviews
 
-class ViewController: UIViewController, WKNavigationDelegate { // V1: including the navigationDelegate so we can use it in the method loadView
+class DetailViewController: UIViewController, WKNavigationDelegate { // V1: including the navigationDelegate so we can use it in the method loadView
     var webView: WKWebView! // V1: storing the web view as a property
     var progressView: UIProgressView! // V3: declaring the property, we will place it inside a bar button item
-    var websites = ["apple.com", "hackingwithswift.com", "uol.com.br"] // V4: Refactoring code adding an array of the websites. With that array, we can modify the web view's initial web page so that it's not hard-coded.
+    var websites: [String]! // V4: Refactoring code adding an array of the websites. With that array, we can modify the web view's initial web page so that it's not hard-coded.
+    var selectedWebsite: String?
     
     override func loadView() {
         webView = WKWebView()  // V1: create a new instance of Apple's WKWebView and assign it to the webView property
@@ -26,17 +27,19 @@ class ViewController: UIViewController, WKNavigationDelegate { // V1: including 
         
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil) // V3: creates a flexible space. It doesn't need a target or action because it can't be tapped. it takes as much room as it can on the left, so the refresh button will be in the right.
         let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload)) // V3: t's calling the reload() method on the web view rather than using a method of our own.
+        let back = UIBarButtonItem(title:"Back", style: .plain, target: webView, action: #selector(webView.goBack)) // C2: Different way of doing a button item
+        let forward = UIBarButtonItem(title:"Forward", style: .plain, target: webView, action: #selector(webView.goForward)) // C2: different way of doing a button item.
         
         progressView = UIProgressView(progressViewStyle: .default) // V3: The first line creates a new UIProgressView instance, giving it the default style. There is an alternative style called .bar
         progressView.sizeToFit() // V3: The second line tells the progress view to set its layout size so that it fits its contents fully.
         let progressButton = UIBarButtonItem(customView: progressView) // V3: creates a new UIBarButtonItem using the customView parameter, which is where we wrap up our UIProgressView in a UIBarButtonItem so that it can go into our toolbar.
         
-        toolbarItems = [progressButton, spacer, refresh] // V3: creates an array containing the progress button, flexible space and the refresh button, then sets it to be our view controller's toolbarItems array.
+        toolbarItems = [back, progressButton, forward, spacer, refresh] // V3: creates an array containing the progress button, flexible space and the refresh button, then sets it to be our view controller's toolbarItems array.
         navigationController?.isToolbarHidden = false // V3: The second sets the navigation controller's isToolbarHidden property to be false, so the toolbar will be shown – and its items will be loaded from our current view.
         
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil) // V3: We're going to use KVO to watch the estimatedProgress property. #keyPath works like #selector
         
-        let url = URL(string: "https://" + websites[0])! // V1: Swift stores URLs in a specific URL data type. the URL must be complete. V4: We are using the array so it's not hard coded.
+        let url = URL(string: "https://" + selectedWebsite!)! // V1: Swift stores URLs in a specific URL data type. the URL must be complete. V4: We are using the array so it's not hard coded.
         webView.load(URLRequest(url: url)) // V1: creates a URLRequest object from that URL and gives it to our web view to load. WKWebView don't load websites from strings, or even from URL made out of those strings, you need to put the URL(first line) into an URLRequest.
         webView.allowsBackForwardNavigationGestures = true // V1: enables a property on the web view that allows users to swipe from the left or right edge to move backward or forward in their web browsing. Many users rely on this, so it's good to keep it around.
     }
@@ -80,6 +83,11 @@ class ViewController: UIViewController, WKNavigationDelegate { // V1: including 
                 }
             }
         }
+        
+        // Showing the alert all the time. Not sure what is hapenning
+//        let ac2 = UIAlertController(title: nil, message: "You can't access this URL", preferredStyle: .alert)
+//        ac2.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//        present(ac2, animated: true)
         
         decisionHandler(.cancel) // V4: if there is no host set, or if we've gone through all the loop and found nothing, we call the decision handler with a negative response: cancel loading.
     }
