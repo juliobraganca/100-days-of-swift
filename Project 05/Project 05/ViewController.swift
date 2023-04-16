@@ -67,10 +67,10 @@ class ViewController: UITableViewController {
         var errorTitle: String?
         var errorMessage: String?
         
-        if isPossible(word: lowerAnswer) {
-            if isOriginal(word: lowerAnswer) {
-                if isReal(word: lowerAnswer) {
-                    if isLongEnough(word: lowerAnswer) {
+        if  isPossible(word: lowerAnswer) == true &&
+            isOriginal(word: lowerAnswer) == true &&
+            isReal(word: lowerAnswer) == true &&
+            isLongEnough(word: lowerAnswer) == true{
                         usedWords.insert(answer.lowercased(), at: 0)
                         
                         let indexPath = IndexPath(row: 0, section: 0)
@@ -79,15 +79,6 @@ class ViewController: UITableViewController {
                     } else {
                         showErrorMessage()
                     }
-                } else {
-                    showErrorMessage()
-                }
-            } else {
-                showErrorMessage()
-            }
-        } else {
-            showErrorMessage()
-        }
         
         func showErrorMessage() {
             if isPossible(word: lowerAnswer) == false {
