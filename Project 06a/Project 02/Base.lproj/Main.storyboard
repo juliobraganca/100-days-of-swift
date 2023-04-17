@@ -17,25 +17,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBC-Qs-tjV">
-                                <rect key="frame" x="84.666666666666686" y="100" width="224" height="114"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="us"/>
+                                <rect key="frame" x="96.666666666666686" y="100" width="200" height="101.66666666666669"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nBC-Qs-tjV" secondAttribute="height" multiplier="112:57" id="tZd-54-tba"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pGP-fl-wA5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LV0-lz-ibb">
-                                <rect key="frame" x="84.666666666666686" y="244" width="224" height="114"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="us"/>
+                                <rect key="frame" x="96.666666666666686" y="231.66666666666663" width="200" height="102"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LV0-lz-ibb" secondAttribute="height" multiplier="112:57" id="Z00-Ve-qBu"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="inb-5Y-1ig"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bae-bz-jAV">
-                                <rect key="frame" x="84.666666666666686" y="388" width="224" height="114"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="us"/>
+                                <rect key="frame" x="96.666666666666686" y="363.66666666666669" width="200" height="101.66666666666669"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bae-bz-jAV" secondAttribute="height" multiplier="112:57" id="NdF-f0-UiN"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zWO-md-vA1"/>
                                 </connections>
@@ -44,11 +53,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="bae-bz-jAV" firstAttribute="height" secondItem="LV0-lz-ibb" secondAttribute="height" id="4kf-5s-CVx"/>
                             <constraint firstItem="bae-bz-jAV" firstAttribute="centerX" secondItem="LV0-lz-ibb" secondAttribute="centerX" id="9TY-7N-s3i"/>
                             <constraint firstItem="LV0-lz-ibb" firstAttribute="centerX" secondItem="nBC-Qs-tjV" secondAttribute="centerX" id="FMs-20-4c0"/>
                             <constraint firstItem="bae-bz-jAV" firstAttribute="top" secondItem="LV0-lz-ibb" secondAttribute="bottom" constant="30" id="Rx6-t9-3IQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="nBC-Qs-tjV" secondAttribute="top" constant="3" id="T4m-io-E6e"/>
                             <constraint firstItem="LV0-lz-ibb" firstAttribute="top" secondItem="nBC-Qs-tjV" secondAttribute="bottom" constant="30" id="aL2-bn-9fq"/>
+                            <constraint firstItem="LV0-lz-ibb" firstAttribute="height" secondItem="nBC-Qs-tjV" secondAttribute="height" id="ioa-FC-8zq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bae-bz-jAV" secondAttribute="bottom" constant="20" id="p6j-6s-1Vw"/>
                             <constraint firstItem="nBC-Qs-tjV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="uzZ-3z-dKR"/>
                         </constraints>
                     </view>
