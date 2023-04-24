@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     var activatedButtons = [UIButton]()
     var solutions = [String]()
+    var rightAnswer = 0
     
     var score = 0 {
         didSet {
@@ -60,6 +61,8 @@ class ViewController: UIViewController {
         currentAnswer.textAlignment = .center
         currentAnswer.font = UIFont.systemFont(ofSize: 44)
         currentAnswer.isUserInteractionEnabled = false
+        currentAnswer.layer.borderWidth = 1
+        currentAnswer.layer.borderColor = UIColor.blue.cgColor
         view.addSubview(currentAnswer)
         
         let submit = UIButton(type: .system) // the most used along with default
@@ -76,6 +79,8 @@ class ViewController: UIViewController {
         
         let buttonsView = UIView()
         buttonsView.translatesAutoresizingMaskIntoConstraints = false
+        buttonsView.layer.borderWidth = 1
+        buttonsView.layer.borderColor = UIColor.blue.cgColor
         view.addSubview(buttonsView)
         
         NSLayoutConstraint.activate([
@@ -166,12 +171,25 @@ class ViewController: UIViewController {
             
             currentAnswer.text = ""
             score += 1
+            rightAnswer += 1
             
-            if score % 7 == 0 {
-                let ac = UIAlertController(title: "Well Done!", message: "Are you ready for the next level?", preferredStyle: .alert)
+            if rightAnswer % 7 == 0 {
+                let ac = UIAlertController(title: "Well Done!", message: "Your final score is \(score). Are you ready for the next level?", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
                 present(ac, animated: true)
             }
+        } else {
+            let ac = UIAlertController(title: "Oops, wrong answer!", message: nil, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+            present(ac, animated: true)
+            score -= 1
+            currentAnswer.text = ""
+
+            for button in activatedButtons {
+                button.isHidden = false
+            }
+
+            activatedButtons.removeAll()
         }
     }
     
