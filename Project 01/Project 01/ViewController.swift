@@ -16,10 +16,20 @@ class ViewController: UITableViewController {
         title = "Storm Viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
         
+//        let fm = FileManager.default
+//        let path = Bundle.main.resourcePath!
+//        let items = try! fm.contentsOfDirectory(atPath: path)
+        
+        performSelector(inBackground: #selector(loadingNSSL), with: nil)
+        
+        print(pictures)
+    }
+    
+    @objc func loadingNSSL() {
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
         let items = try! fm.contentsOfDirectory(atPath: path)
-
+        
         for item in items {
             if item.hasPrefix("nssl") {
                 // this is a picture to load!
@@ -27,8 +37,9 @@ class ViewController: UITableViewController {
                 pictures.sort()
             }
         }
-        
-        print(pictures)
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
