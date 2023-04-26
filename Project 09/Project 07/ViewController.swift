@@ -89,14 +89,16 @@ class ViewController: UITableViewController {
         let submitAction = UIAlertAction(title: "Submit", style: .default) {
             [weak self, weak ac] action in
             guard let filter = ac?.textFields?[0].text else { return }
-            self?.submit(filter)
+            DispatchQueue.global(qos: .userInitiated).async {
+                self?.submit(filter)
+            }
         }
         
         ac.addAction(submitAction)
         present(ac, animated:true)
     }
     
-    func submit(_ filter: String) {
+    @objc func submit(_ filter: String) {
         if filter.isEmpty {
             filteredPetitions = petitions
         } else {
@@ -104,6 +106,8 @@ class ViewController: UITableViewController {
                 $0.title.lowercased().contains(filter)
             }
         }
-        tableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 }
