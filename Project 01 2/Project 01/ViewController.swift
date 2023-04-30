@@ -13,6 +13,8 @@ class ViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.backgroundColor = .systemGray6
+        
         title = "Storm Viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
         
@@ -50,10 +52,15 @@ class ViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Picture", for: indexPath) as? CustomCollectionViewCell else {
             fatalError("Unable to dequeue Picture Cell.")
         }
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor.gray.cgColor
+        cell.layer.cornerRadius = 15
+        cell.backgroundColor = .white
         cell.nameLabel.text = pictures[indexPath.item]
-        cell.nameLabel.font = UIFont.systemFont(ofSize: 20) // Challenge 1
+        cell.nameLabel.font = UIFont.systemFont(ofSize: 16) // Challenge 1
         cell.imageView.image = UIImage(named: pictures[indexPath.item])
-        cell.imageView.contentMode = .scaleAspectFit
+        cell.imageView.contentMode = .scaleAspectFill
+        cell.imageView.layer.cornerRadius = 15
         // cell.textLabel?.adjustsFontSizeToFitWidth = true // to adjust to fit Width
         return cell
     }
