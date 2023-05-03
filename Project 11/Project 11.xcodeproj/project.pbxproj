@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36C93C392A029B8F00008CF9 /* FireParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 36C93C382A029B8F00008CF9 /* FireParticles.sks */; };
 		36D3FF6D29FFFEF700ACD229 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D3FF6C29FFFEF700ACD229 /* AppDelegate.swift */; };
 		36D3FF6F29FFFEF700ACD229 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 36D3FF6E29FFFEF700ACD229 /* GameScene.sks */; };
 		36D3FF7329FFFEF700ACD229 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D3FF7229FFFEF700ACD229 /* GameScene.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36C93C382A029B8F00008CF9 /* FireParticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireParticles.sks; sourceTree = "<group>"; };
 		36D3FF6929FFFEF700ACD229 /* Project 11.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project 11.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36D3FF6C29FFFEF700ACD229 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36D3FF6E29FFFEF700ACD229 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				36D3FF7629FFFEF700ACD229 /* Main.storyboard */,
 				36D3FF7929FFFEF900ACD229 /* Assets.xcassets */,
 				36D3FF7B29FFFEF900ACD229 /* LaunchScreen.storyboard */,
+				36C93C382A029B8F00008CF9 /* FireParticles.sks */,
 			);
 			path = "Project 11";
 			sourceTree = "<group>";
@@ -128,6 +131,7 @@
 			files = (
 				36D3FF7829FFFEF700ACD229 /* Main.storyboard in Resources */,
 				36D3FF6F29FFFEF700ACD229 /* GameScene.sks in Resources */,
+				36C93C392A029B8F00008CF9 /* FireParticles.sks in Resources */,
 				36D3FF7A29FFFEF900ACD229 /* Assets.xcassets in Resources */,
 				36D3FF7D29FFFEF900ACD229 /* LaunchScreen.storyboard in Resources */,
 			);
