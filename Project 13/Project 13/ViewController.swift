@@ -12,14 +12,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var intensity: UISlider!
-    var currentImage: UIImage!
+    @IBOutlet var radius: UISlider!
+    @IBOutlet var scale: UISlider!
     
+    @IBOutlet var changeFilterButton: UIButton!
+    
+    
+    var currentImage: UIImage!
     var context: CIContext!
     var currentFilter: CIFilter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Instafilter"
+
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(importPicture))
         
@@ -44,7 +50,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         applyProcessing()
     }
 
-
     @IBAction func changeFilter(_ sender: UIButton) {
         let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "CIBumpDistortion", style:. default, handler: setFilter))
@@ -62,9 +67,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         present(ac, animated: true)
+        
     }
     
+    
     func setFilter(action: UIAlertAction) {
+        changeFilterButton.setTitle(action.title, for: .normal)
         // make sure we have a valid image before continuing!
         guard currentImage != nil else { return }
         
@@ -77,12 +85,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
         
         applyProcessing()
-        
+
     }
     
     @IBAction func save(_ sender: Any) {
-        guard let image = imageView.image else { return }
-        UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+        if let image = imageView.image {
+            UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+        } else {
+            let ac = UIAlertController(title: "Error", message: "No message was selected", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        }
     }
     
     @IBAction func intensityChanged(_ sender: Any) {
@@ -97,17 +110,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         if inputKeys.contains(kCIInputRadiusKey) {
-            currentFilter.setValue(intensity.value * 200, forKey: kCIInputRadiusKey)
+            currentFilter.setValue(radius.value * 200, forKey: kCIInputRadiusKey)
         }
         
         if inputKeys.contains(kCIInputScaleKey) {
-            currentFilter.setValue(intensity.value * 10, forKey: kCIInputScaleKey)
+            currentFilter.setValue(scale.value * 10, forKey: kCIInputScaleKey)
         }
         
         if inputKeys.contains(kCIInputCenterKey) {
             currentFilter.setValue(CIVector(x: currentImage.size.width / 2, y: currentImage.size.height / 2), forKey: kCIInputCenterKey)
         }
-        
+                
         guard let outputImage = currentFilter.outputImage else { return }
         
         if let cgImage = context.createCGImage(currentFilter.outputImage!, from: outputImage.extent) {
