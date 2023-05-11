@@ -14,7 +14,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var intensity: UISlider!
     @IBOutlet var radius: UISlider!
     @IBOutlet var scale: UISlider!
-    
     @IBOutlet var changeFilterButton: UIButton!
     
     
