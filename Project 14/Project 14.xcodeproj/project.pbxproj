@@ -10,6 +10,7 @@
 		366DA4BF2A0D749A00193E10 /* whack.caf in Resources */ = {isa = PBXBuildFile; fileRef = 366DA4BD2A0D749A00193E10 /* whack.caf */; };
 		366DA4C02A0D749A00193E10 /* whackBad.caf in Resources */ = {isa = PBXBuildFile; fileRef = 366DA4BE2A0D749A00193E10 /* whackBad.caf */; };
 		366DA4C22A0D7CB100193E10 /* WhackSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366DA4C12A0D7CB100193E10 /* WhackSlot.swift */; };
+		366DA4C42A0ED36300193E10 /* gameOver.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 366DA4C32A0ED36300193E10 /* gameOver.m4a */; };
 		36B5A6102A0D447C003BD77D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B5A60F2A0D447C003BD77D /* AppDelegate.swift */; };
 		36B5A6122A0D447C003BD77D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 36B5A6112A0D447C003BD77D /* GameScene.sks */; };
 		36B5A6162A0D447C003BD77D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B5A6152A0D447C003BD77D /* GameScene.swift */; };
@@ -23,6 +24,7 @@
 		366DA4BD2A0D749A00193E10 /* whack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whack.caf; sourceTree = "<group>"; };
 		366DA4BE2A0D749A00193E10 /* whackBad.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whackBad.caf; sourceTree = "<group>"; };
 		366DA4C12A0D7CB100193E10 /* WhackSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhackSlot.swift; sourceTree = "<group>"; };
+		366DA4C32A0ED36300193E10 /* gameOver.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = gameOver.m4a; sourceTree = "<group>"; };
 		36B5A60C2A0D447C003BD77D /* Project 14.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project 14.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B5A60F2A0D447C003BD77D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36B5A6112A0D447C003BD77D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				36B5A61E2A0D447D003BD77D /* LaunchScreen.storyboard */,
 				366DA4BD2A0D749A00193E10 /* whack.caf */,
 				366DA4BE2A0D749A00193E10 /* whackBad.caf */,
+				366DA4C32A0ED36300193E10 /* gameOver.m4a */,
 			);
 			path = "Project 14";
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 				36B5A6122A0D447C003BD77D /* GameScene.sks in Resources */,
 				36B5A61D2A0D447D003BD77D /* Assets.xcassets in Resources */,
 				36B5A6202A0D447D003BD77D /* LaunchScreen.storyboard in Resources */,
+				366DA4C42A0ED36300193E10 /* gameOver.m4a in Resources */,
 				366DA4C02A0D749A00193E10 /* whackBad.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
