@@ -61,8 +61,8 @@ class ViewController: UIViewController {
         currentAnswer.textAlignment = .center
         currentAnswer.font = UIFont.systemFont(ofSize: 44)
         currentAnswer.isUserInteractionEnabled = false
-        currentAnswer.layer.borderWidth = 1
-        currentAnswer.layer.borderColor = UIColor.blue.cgColor
+        currentAnswer.layer.borderWidth = 0.5
+        currentAnswer.layer.borderColor = UIColor.lightGray.cgColor
         view.addSubview(currentAnswer)
         
         let submit = UIButton(type: .system) // the most used along with default
@@ -79,8 +79,8 @@ class ViewController: UIViewController {
         
         let buttonsView = UIView()
         buttonsView.translatesAutoresizingMaskIntoConstraints = false
-        buttonsView.layer.borderWidth = 1
-        buttonsView.layer.borderColor = UIColor.blue.cgColor
+        buttonsView.layer.borderWidth = 0.5
+        buttonsView.layer.borderColor = UIColor.lightGray.cgColor
         view.addSubview(buttonsView)
         
         NSLayoutConstraint.activate([
@@ -134,6 +134,8 @@ class ViewController: UIViewController {
                 // calculate the frame of this button using its column and row
                 let frame = CGRect(x: column * width, y: row * height, width: width, height: height)
                 letterButton.frame = frame
+                letterButton.layer.borderColor = UIColor.lightGray.cgColor
+                letterButton.layer.borderWidth = 0.5
                 
                 // add it to the buttons view
                 buttonsView.addSubview(letterButton)
@@ -158,7 +160,10 @@ class ViewController: UIViewController {
         
         currentAnswer.text = currentAnswer.text?.appending(buttonTitle)
         activatedButtons.append(sender)
-        sender.isHidden = true
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+            sender.alpha = 0
+        }
     }
     
     @objc func submitTapped(_ sender: UIButton) {
@@ -188,7 +193,7 @@ class ViewController: UIViewController {
             currentAnswer.text = ""
 
             for button in activatedButtons {
-                button.isHidden = false
+                button.alpha = 1
             }
 
             activatedButtons.removeAll()
@@ -202,7 +207,7 @@ class ViewController: UIViewController {
         loadLevel()
         
         for button in letterButtons {
-            button.isHidden = false
+            button.alpha = 1
         }
     }
     
@@ -211,7 +216,7 @@ class ViewController: UIViewController {
         currentAnswer.text = ""
         
         for button in activatedButtons {
-            button.isHidden = false
+            button.alpha = 1
         }
         
         activatedButtons.removeAll()
