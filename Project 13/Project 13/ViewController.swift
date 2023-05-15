@@ -45,7 +45,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
         dismiss(animated: true)
+        
+        imageView.alpha = 0
+        
         currentImage = image
+        
+        UIView.animate(withDuration: 2, delay: 0, options: .curveEaseOut) {
+            self.imageView.alpha = 1
+        }
         
         let beginImage = CIImage(image: currentImage ?? UIImage())
         currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
@@ -98,6 +105,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             ac.addAction(UIAlertAction(title: "OK", style: .default))
             present(ac, animated: true)
         }
+        
+        imageView.alpha = 0
     }
     
     @IBAction func intensityChanged(_ sender: Any) {
