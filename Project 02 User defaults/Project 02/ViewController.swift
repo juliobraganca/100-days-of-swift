@@ -67,6 +67,13 @@ class ViewController: UIViewController {
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
         
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseOut) {
+            self.button1.transform = .identity
+            self.button2.transform = .identity
+            self.button3.transform = .identity
+        }
+
+        
 // title = countries[correctAnswer].uppercased() // Code from the class. I preferred to try something different.
         
         switch countries[correctAnswer]{ //Included this code to only US and UK to be uppercased
@@ -83,6 +90,10 @@ class ViewController: UIViewController {
         
         var title: String
         var alertMessage: String
+        
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 5, options: .curveLinear) {
+            sender.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        }
         
         if questionsAsked == 11{
             alertMessage = ""
