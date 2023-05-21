@@ -12,6 +12,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var starfield: SKEmitterNode!
     var player: SKSpriteNode!
     var scoreLabel: SKLabelNode!
+    var finalScoreLabel: SKLabelNode!
+    var enemyCount = 0
+    var enemyCountTimer = 1.0
     
     var possibleEnemies = ["ball", "hammer", "tv"]
     var gameTimer: Timer?
@@ -48,17 +51,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.gravity = .zero
         physicsWorld.contactDelegate = self
         
-        gameTimer = Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
-        
-        
+        activateTimer()
+    }
+    
+    func activateTimer() {
+        gameTimer = Timer.scheduledTimer(timeInterval: enemyCountTimer, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
     }
     
     @objc func createEnemy() {
         guard let enemy = possibleEnemies.randomElement() else { return }
-                
+        
         let sprite = SKSpriteNode(imageNamed: enemy)
         sprite.position = CGPoint(x: 1200, y: Int.random(in: 50...736))
-        addChild(sprite)
+        
+        if isGameOver == false {
+            addChild(sprite)
+            enemyCount += 1
+            enemyTimer()
+        }
         
         sprite.physicsBody = SKPhysicsBody(texture: sprite.texture!, size: sprite.size)
         sprite.physicsBody?.categoryBitMask = 1
@@ -67,10 +77,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sprite.physicsBody?.linearDamping = 0
         sprite.physicsBody?.angularDamping = 0
     }
-
+    
+    func enemyTimer() {
+        
+        if enemyCountTimer < 0.3 {
+            gameTimer?.invalidate()
+            enemyCountTimer = 0.25
+            activateTimer()
+            
+        } else if enemyCount % 1 == 0 {
+            gameTimer?.invalidate()
+            enemyCountTimer -= 0.1
+            activateTimer()
+        }
+    }
+    
     
     override func update(_ currentTime: TimeInterval) {
-     
+        
         for node in children {
             if node.position.x < -300 {
                 node.removeFromParent()
@@ -102,5 +126,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         player.removeFromParent()
         isGameOver = true
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        isGameOver = true
+        gameTimer?.invalidate()
+        
+        finalScoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+        finalScoreLabel.text = "FINAL SCORE: \(score)"
+        finalScoreLabel.fontSize = 36
+        finalScoreLabel.position = CGPoint(x: 512, y: 384)
+        addChild(finalScoreLabel)
+        
+        player.removeFromParent()
     }
 }
