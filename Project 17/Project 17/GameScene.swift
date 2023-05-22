@@ -85,7 +85,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             enemyCountTimer = 0.25
             activateTimer()
             
-        } else if enemyCount % 1 == 0 {
+        } else if enemyCount % 20 == 0 {
             gameTimer?.invalidate()
             enemyCountTimer -= 0.1
             activateTimer()
