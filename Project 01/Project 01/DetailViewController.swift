@@ -19,6 +19,8 @@ class DetailViewController: UIViewController {
         // title = selectedImage //both are optional so no need to unwrap
         title = "Image \(selectedImagePosition) of \(totalPictures)" // challenge 3
         navigationItem.largeTitleDisplayMode = .never
+        
+        assert(selectedImage != nil, "no selected image.")
 
         if let imageToLoad = selectedImage {
             imageView.image = UIImage(named: imageToLoad)
