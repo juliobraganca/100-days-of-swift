@@ -14,6 +14,7 @@ class ActionViewController: UIViewController {
     
     var pageTitle = ""
     var pageURL = ""
+    var savedScriptsForURL: [String:String] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,7 @@ class ActionViewController: UIViewController {
                     
                     DispatchQueue.main.async {
                         self?.title = self?.pageTitle
+                        self?.loadUserDefaults()
                     }
                 }
             }
@@ -45,6 +47,10 @@ class ActionViewController: UIViewController {
     
     
     @IBAction func done() {
+        DispatchQueue.global(qos: .background).async {
+            self.save()
+        }
+        
         let item = NSExtensionItem()
         let argument: NSDictionary = ["customJavaScript": script.text]
         let webDictionary: NSDictionary = [NSExtensionJavaScriptFinalizeArgumentKey: argument]
@@ -72,11 +78,43 @@ class ActionViewController: UIViewController {
     }
     
     @objc func scripts() {
-        let ac = UIAlertController(title: "Select the script", message: nil, preferredStyle: .alert)
+        let ac = UIAlertController(title: "Select the script", message: nil, preferredStyle: .actionSheet)
         
-        ac.addAction(UIAlertAction(title: <#T##String?#>, style: <#T##UIAlertAction.Style#>))
         
+        let title = UIAlertAction(title: "Site name", style: .default) { action in
+            self.script.text = "alert(document.title);"
+        }
+        
+        let url = UIAlertAction(title: "Site URL", style: .default) { action in
+            self.script.text = "alert(document.URL);"
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        ac.addAction(title)
+        ac.addAction(url)
+        ac.addAction(cancel)
         present(ac, animated: true)
+    }
+    
+    func save() {
+        if let url = URL(string: pageURL) {
+            if let host = url.host {
+                savedScriptsForURL.updateValue(script.text, forKey: host)
+            }
+        }
+        
+        UserDefaults.standard.set(savedScriptsForURL, forKey: "SavedScriptsForURL")
+    }
+    
+    func loadUserDefaults() {
+        savedScriptsForURL = UserDefaults.standard.dictionary(forKey: "SavedScriptsForURL") as? [String:String] ?? [:]
+        
+        if let url = URL(string: pageURL) {
+            if let host = url.host {
+                script.text = savedScriptsForURL[host]
+            }
+        }
     }
     
 }
