@@ -10,6 +10,10 @@ import SpriteKit
 class GameScene: SKScene {
     var gameTimer: Timer?
     var fireworks = [SKNode]()
+    var scoreLabel: SKLabelNode!
+    var finalScoreLabel: SKLabelNode!
+    var launchesCount = 0
+    var isGameOver = false
     
     let leftEdge = 22
     let bottomEdge = -22
@@ -17,7 +21,7 @@ class GameScene: SKScene {
     
     var score = 0 {
         didSet {
-            // code
+            scoreLabel.text = "Score: \(score)"
         }
     }
     
@@ -28,8 +32,19 @@ class GameScene: SKScene {
         background.zPosition = -1
         addChild(background)
         
-        gameTimer = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(launchFireworks), userInfo: nil, repeats: true)
+        scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+        scoreLabel.position = CGPoint(x: 16, y: 16)
+        scoreLabel.horizontalAlignmentMode = .left
+        addChild(scoreLabel)
         
+        score = 0
+        
+        launchFireworks()
+        activateTimer()
+    }
+    
+    func activateTimer() {
+        gameTimer = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(launchFireworks), userInfo: nil, repeats: true)
     }
     
     func createFirework(xMovement: CGFloat, x: Int, y: Int) {
@@ -69,41 +84,54 @@ class GameScene: SKScene {
     @objc func launchFireworks() {
         let movementAmount: CGFloat = 1800
         
-        switch Int.random(in: 0...3) {
-        case 0:
-            // fire five, straight up
-            createFirework(xMovement: 0, x: 512, y: bottomEdge)
-            createFirework(xMovement: 0, x: 512 - 200, y: bottomEdge)
-            createFirework(xMovement: 0, x: 512 - 100, y: bottomEdge)
-            createFirework(xMovement: 0, x: 512 + 100, y: bottomEdge)
-            createFirework(xMovement: 0, x: 512 + 200, y: bottomEdge)
+        if launchesCount == 5 {
+            gameTimer?.invalidate()
+            fireworks.removeAll(keepingCapacity: true)
             
-        case 1:
-            // fire five, in a fan
-            createFirework(xMovement: 0, x: 512, y: bottomEdge)
-            createFirework(xMovement: -200, x: 512 - 200, y: bottomEdge)
-            createFirework(xMovement: -100, x: 512 - 100, y: bottomEdge)
-            createFirework(xMovement: 100, x: 512 + 100, y: bottomEdge)
-            createFirework(xMovement: 200, x: 512 + 200, y: bottomEdge)
+            finalScoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+            finalScoreLabel.position = CGPoint(x: 512, y: 384)
+            finalScoreLabel.text = "Your final score is: \(score)"
+            finalScoreLabel.fontSize = 36
+            addChild(finalScoreLabel)
             
-        case 2:
-            // fire five, from the left to the right
-            createFirework(xMovement: movementAmount, x: leftEdge, y: bottomEdge + 400)
-            createFirework(xMovement: movementAmount, x: leftEdge, y: bottomEdge + 300)
-            createFirework(xMovement: movementAmount, x: leftEdge, y: bottomEdge + 200)
-            createFirework(xMovement: movementAmount, x: leftEdge, y: bottomEdge + 100)
-            createFirework(xMovement: movementAmount, x: leftEdge, y: bottomEdge)
-            
-        case 3:
-            // fire five, from the right to the left
-            createFirework(xMovement: -movementAmount, x: rightEdge, y: bottomEdge + 400)
-            createFirework(xMovement: -movementAmount, x: rightEdge, y: bottomEdge + 300)
-            createFirework(xMovement: -movementAmount, x: rightEdge, y: bottomEdge + 200)
-            createFirework(xMovement: -movementAmount, x: rightEdge, y: bottomEdge + 100)
-            createFirework(xMovement: -movementAmount, x: rightEdge, y: bottomEdge)
-            
-        default:
-            break
+        } else {
+            launchesCount += 1
+            switch Int.random(in: 0...3) {
+            case 0:
+                // fire five, straight up
+                createFirework(xMovement: 0, x: 512, y: bottomEdge)
+                createFirework(xMovement: 0, x: 512 - 200, y: bottomEdge)
+                createFirework(xMovement: 0, x: 512 - 100, y: bottomEdge)
+                createFirework(xMovement: 0, x: 512 + 100, y: bottomEdge)
+                createFirework(xMovement: 0, x: 512 + 200, y: bottomEdge)
+                
+            case 1:
+                // fire five, in a fan
+                createFirework(xMovement: 0, x: 512, y: bottomEdge)
+                createFirework(xMovement: -200, x: 512 - 200, y: bottomEdge)
+                createFirework(xMovement: -100, x: 512 - 100, y: bottomEdge)
+                createFirework(xMovement: 100, x: 512 + 100, y: bottomEdge)
+                createFirework(xMovement: 200, x: 512 + 200, y: bottomEdge)
+                
+            case 2:
+                // fire five, from the left to the right
+                createFirework(xMovement: movementAmount, x: leftEdge, y: bottomEdge + 400)
+                createFirework(xMovement: movementAmount, x: leftEdge, y: bottomEdge + 300)
+                createFirework(xMovement: movementAmount, x: leftEdge, y: bottomEdge + 200)
+                createFirework(xMovement: movementAmount, x: leftEdge, y: bottomEdge + 100)
+                createFirework(xMovement: movementAmount, x: leftEdge, y: bottomEdge)
+                
+            case 3:
+                // fire five, from the right to the left
+                createFirework(xMovement: -movementAmount, x: rightEdge, y: bottomEdge + 400)
+                createFirework(xMovement: -movementAmount, x: rightEdge, y: bottomEdge + 300)
+                createFirework(xMovement: -movementAmount, x: rightEdge, y: bottomEdge + 200)
+                createFirework(xMovement: -movementAmount, x: rightEdge, y: bottomEdge + 100)
+                createFirework(xMovement: -movementAmount, x: rightEdge, y: bottomEdge)
+                
+            default:
+                break
+            }
         }
     }
     
@@ -127,8 +155,6 @@ class GameScene: SKScene {
             
             node.name = "selected"
             node.colorBlendFactor = 0
-            
-            
         }
     }
     
@@ -148,6 +174,51 @@ class GameScene: SKScene {
                 fireworks.remove(at: index)
                 firework.removeFromParent()
             }
+        }
+    }
+    
+    func explode(firework: SKNode) {
+        if let emitter = SKEmitterNode(fileNamed: "explode") {
+            emitter.position = firework.position
+            addChild(emitter)
+            
+            let wait = SKAction.wait(forDuration: 3)
+            let remove = SKAction.run {
+                emitter.removeFromParent()
+            }
+            let sequence = SKAction.sequence([wait, remove])
+            emitter.run(sequence)
+        }
+        
+        firework.removeFromParent()
+    }
+    
+    func explodeFireworks() {
+        var numExploded = 0
+        
+        for (index, fireworkContainer) in fireworks.enumerated().reversed() {
+            guard let firework = fireworkContainer.children.first as? SKSpriteNode else { continue }
+            
+            if firework.name == "selected" {
+                explode(firework: fireworkContainer)
+                fireworks.remove(at: index)
+                numExploded += 1
+            }
+        }
+        
+        switch numExploded {
+        case 0:
+            break
+        case 1:
+            score += 200
+        case 2:
+            score += 500
+        case 3:
+            score += 1500
+        case 4:
+            score += 2500
+        default:
+            score += 4000
         }
     }
 }
