@@ -104,3 +104,15 @@ attributedString2.addAttribute(.font, value: UIFont.systemFont(ofSize: 40), rang
 // And that’s just a subset of what you can do.
 
 // You might be wondering how useful all this knowledge is, but here’s the important part: UILabel, UITextField, UITextView, UIButton, UINavigationBar, and more all support attributed strings just as well as regular strings. So, for a label you would just use attributedText rather than text, and UIKit takes care of the rest.
+
+extension String {
+    func addPrefix(prefix: String) -> String {
+        guard !self.hasPrefix(prefix) else { return self }
+        
+        return String(prefix + self)
+    }
+}
+
+var test = "vamos"
+
+print(test.addPrefix(prefix: "va"))
