@@ -116,3 +116,24 @@ extension String {
 var test = "vamos"
 
 print(test.addPrefix(prefix: "va"))
+
+extension String {
+    var isNumeric: Bool {
+        return !self.compactMap { Double(String($0)) }.isEmpty
+    }
+}
+
+let nonNumericString = "the sky was blue today"
+let numericString1 = "there are 7 days in a week"
+let numericString2 = "the number doesn't have to be isolat3d"
+print(nonNumericString.isNumeric) // false...
+print(numericString1.isNumeric) // true...
+print(numericString2.isNumeric) // true...
+
+extension String {
+    var lines: [String] {
+        return self.components(separatedBy: .newlines)
+    }
+}
+
+print("this\nis\na\ntest".lines) // An array with four elements...
