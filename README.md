@@ -1,6 +1,6 @@
 # 100 days of swift
 
-> Status: Day 13 of 100 - Consolidating the Fundamentals
+![100 days of swift](https://github.com/juliobraganca/100-days-of-swift/assets/127988357/1dd9cbdd-70ad-426d-9828-2db751692bdd)
 
 The following contents are already included:
 
