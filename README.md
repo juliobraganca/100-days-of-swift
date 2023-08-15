@@ -2,7 +2,7 @@
 
 ![100 days of swift](https://github.com/juliobraganca/100-days-of-swift/assets/127988357/1dd9cbdd-70ad-426d-9828-2db751692bdd)
 
-This repository includes all of the projects from Paul Hudson's [100 Days of Swift](https://www.hackingwithswift.com/100) course.
+This repository includes all of the projects (with the challenges) from Paul Hudson's [100 Days of Swift](https://www.hackingwithswift.com/100) course.
 
 These products were built using xcode 14.
 ___
