@@ -18,3 +18,4 @@ From [Hacking with Swift](https://www.hackingwithswift.com/read/5/7/wrap-up):
 >To trigger the bug, look for a three-letter word in your starting word, and enter it with an uppercase letter. Once it appears in the table, try entering it again all lowercase – you’ll see it gets entered. Can you figure out what causes this and how to fix it?
 
 ## Screenshots
+![Screenshot 2023-08-15 at 11 05 18](https://github.com/juliobraganca/100-days-of-swift/assets/127988357/1fef3e38-36d5-477b-adc9-0dd25d03a617)
