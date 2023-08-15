@@ -2,9 +2,6 @@
 
 https://www.hackingwithswift.com/100/36
 
-Bonus:
-- Go back to level 1 once all levels have been played
-
 ## Topics
 
 UI in code, Text alignment, Layout Margins, UIFont
@@ -17,4 +14,4 @@ From [Hacking with Swift](https://www.hackingwithswift.com/read/8/6/wrap-up):
 >3. Try making the game also deduct points if the player makes an incorrect guess. Think about how you can move to the next level – we can’t use a simple division remainder on the player’s score any more, because they might have lost some points.
 
 ## Screenshots
-
+![Screenshot 2023-08-15 at 14 15 36](https://github.com/juliobraganca/100-days-of-swift/assets/127988357/c3395912-e844-4d69-9b34-e94a38ae52e9)
