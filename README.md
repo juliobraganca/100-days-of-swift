@@ -23,6 +23,7 @@ ___
 <br><sub>Reading from disk, UIAlertController, IndexPath<sub/>
 - Project 6:
 <br><sub>Auto Layout, Constraints, Visual Format Language	<sub/>
+
   - Project 6A: Guess the Flag Extended
   - Project 6B: Auto Layout
  
@@ -41,6 +42,7 @@ ___
 <br><sub>SpriteKit, Nodes, UITouch, Physics Body, SKAction, Collisions, Emitters<sub/>
 - Project 12:
 <br><sub>UserDefaults, JSON, NSCoding, Codable<sub/>
+
   - Project 12A: UserDefaults (NSCoding)
   - Project 12B: UserDefaults (Codable)
 
