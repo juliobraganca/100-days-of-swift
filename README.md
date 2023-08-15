@@ -21,7 +21,7 @@ ___
 <br><sub>WKWebView, Action sheets, UIToolbar, UIProgressView<sub/>
 - [Project 5: Word Scramble](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/Project%2005)
 <br><sub>Reading from disk, UIAlertController, IndexPath<sub/>
-- Project 6:
+- Project 6: Divided into A and B
 <br><sub>Auto Layout, Constraints, Visual Format Language	<sub/>
 
   - [Project 6A: Guess the Flag Extended](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/Project%2006a)
