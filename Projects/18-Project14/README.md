@@ -15,3 +15,5 @@ From [Hacking with Swift](https://www.hackingwithswift.com/read/14/5/wrap-up):
 
 
 ## Screenshots
+![Screenshot 2023-08-16 at 10 56 13](https://github.com/juliobraganca/100-days-of-swift/assets/127988357/159891a0-d3a8-4139-804f-0fa064637a0e)
+![Screenshot 2023-08-16 at 10 56 44](https://github.com/juliobraganca/100-days-of-swift/assets/127988357/637b05e4-24dd-4b6d-a881-5055ab01434d)
