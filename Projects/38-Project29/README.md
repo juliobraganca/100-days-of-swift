@@ -14,3 +14,4 @@ From [Hacking with Swift](https://www.hackingwithswift.com/read/29/6/wrap-up):
 >3. Use the physics world’s gravity to add random wind to each level, making sure to add a label telling players the direction and strength.
 
 ## Screenshots
+<img width="907" alt="Screenshot 2023-08-16 at 18 58 35" src="https://github.com/juliobraganca/100-days-of-swift/assets/127988357/577b7691-dd3c-4a29-86d7-202d6f7f382d">
