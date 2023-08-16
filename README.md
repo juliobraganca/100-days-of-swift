@@ -40,11 +40,8 @@ ___
 <br><sub>UICollectionView, UIImagePickerController, NSObject<sub/>
 - [Project 11: Pachinko](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/14-Project11)
 <br><sub>SpriteKit, Nodes, UITouch, Physics Body, SKAction, Collisions, Emitters<sub/>
-- [Project 12](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/15-Project12):
+- [Project 12: UserDefaults](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/15-Project12)
 <br><sub>UserDefaults, JSON, NSCoding, Codable<sub/>
-
-  - [Project 12A: UserDefaults (NSCoding)](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/15a-Project12a)
-  - [Project 12B: UserDefaults (Codable)](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/15b-Project12b)
 
 ### Images and animation
 - [Project 13: Instafilter](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/17-Project13)
