@@ -14,4 +14,4 @@ From [Hacking with Swift](https://www.hackingwithswift.com/read/25/5/wrap-up):
 >3. Add a button that shows an alert controller listing the names of all devices currently connected to the session – use the connectedPeers property of your session to find that information.
 
 ## Screenshots
-
+<img width="416" alt="Screenshot 2023-08-16 at 17 49 44" src="https://github.com/juliobraganca/100-days-of-swift/assets/127988357/c0cfb559-399a-4505-abb2-a82dd98952a0">
