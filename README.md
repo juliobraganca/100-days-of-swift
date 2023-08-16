@@ -72,7 +72,7 @@ ___
 <br><sub>iBeacons, Core Location, CLBeaconRegion<sub/>
 - [Project 23: Swifty Ninja](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/30-Project23)
 <br><sub>SKShapeNode, AVAudioPlayer, CGPath, UIBezierPath, SKTexture<sub/>
-- [Project 24: Swift Strings](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/31-Project24.playground)
+- [Project 24: Swift Strings](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/31-Project24)
 <br><sub>Strings, NSAttributedString<sub/>
 
 ### Multipeer and motion
