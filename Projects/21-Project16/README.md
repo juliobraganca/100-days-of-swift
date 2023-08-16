@@ -14,3 +14,6 @@ From [Hacking with Swift](https://www.hackingwithswift.com/read/16/4/wrap-up):
 >3. Modify the callout button so that pressing it shows a new view controller with a web view, taking users to the Wikipedia entry for that city.
 
 ## Screenshots
+![Screenshot 2023-08-16 at 11 13 15](https://github.com/juliobraganca/100-days-of-swift/assets/127988357/09041e49-5cda-402e-8710-158e49a731d9)
+![Screenshot 2023-08-16 at 11 13 43](https://github.com/juliobraganca/100-days-of-swift/assets/127988357/abefce3e-0ad4-4dbe-9d31-68b7dbc62d95)
+![Screenshot 2023-08-16 at 11 13 48](https://github.com/juliobraganca/100-days-of-swift/assets/127988357/be06f4ff-b8e5-486c-8b6c-b91e4727a88e)
