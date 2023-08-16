@@ -1,4 +1,4 @@
-<img width="416" alt="image" src="https://github.com/juliobraganca/100-days-of-swift/assets/127988357/f17ea1b9-d876-483e-bbd7-fb2dedae1f43"># Project 25 - Selfie Share
+# Project 25 - Selfie Share
 
 https://www.hackingwithswift.com/100/83
 
