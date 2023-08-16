@@ -5,17 +5,43 @@
 //  Created by Júlio Bragança on 28/04/23.
 //
 
+import LocalAuthentication
 import UIKit
 
 class ViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var people = [Person]()
-
+    
+    // p28 challenge 3
+    var hiddenPeople = [Person]()
+    var addNewPersonButton: UIBarButtonItem!
+    var unlockButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = .black
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
+        //        collectionView.backgroundColor = .black
+        addNewPersonButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
+        
+        unlockButton = UIBarButtonItem(title: "Unlock", style: .plain, target: self, action: #selector(unlockTapped))
+        navigationItem.rightBarButtonItem = unlockButton
+        
+//        let defaults = UserDefaults.standard
+//
+//        if let savedPeople = defaults.object(forKey: "people") as? Data {
+//            let jsonDecoder = JSONDecoder()
+//
+//            do {
+//                // project 28 challenge 3
+//                hiddenPeople = try jsonDecoder.decode([Person].self, from: savedPeople)
+//            }
+//            catch {
+//                print("Failed to load people")
+//            }
+//        }
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(lock), name: UIApplication.willResignActiveNotification, object: nil)
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return people.count
     }
@@ -45,9 +71,9 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             picker.sourceType = .camera
-            } else {
-                picker.sourceType = .photoLibrary
-            }
+        } else {
+            picker.sourceType = .photoLibrary
+        }
         
         picker.allowsEditing = true
         picker.delegate = self
@@ -116,6 +142,60 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         ac.addAction(delete)
         ac.addAction(cancel)
         present(ac, animated: true)
+    }
+    
+    @objc func unlockTapped() {
+        let context = LAContext()
+        var error: NSError?
+        
+        guard context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
+            showAlert(title: "Unavailable", message: "Biometrics authentication is not available")
+            return
+        }
+        
+        var reason = ""
+        switch context.biometryType {
+        case .none:
+            showAlert(title: "Unavailable", message: "Biometrics authentication is not available")
+            return
+        case .faceID:
+            reason = "Use Face ID to access your pictures"
+        case .touchID:
+            reason = "Use Touch ID to access your pictures"
+        @unknown default:
+            reason = "Use biometrics to access your pictures"
+        }
+        
+        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self] success, authenticationError in
+            DispatchQueue.main.async {
+                guard success else {
+                    self?.showAlert(title: "Failed", message: "Biometrics authentication failed")
+                    return
+                }
+                
+                self?.unlock()
+            }
+        }
+    }
+    
+    func showAlert(title: String, message: String) {
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+    }
+    
+    @objc func lock() {
+        navigationItem.leftBarButtonItem = nil
+        navigationItem.rightBarButtonItem = unlockButton
+        people = [Person]()
+        collectionView.reloadData()
+    }
+    
+    func unlock() {
+        navigationItem.leftBarButtonItem = addNewPersonButton
+        navigationItem.rightBarButtonItem = nil
+        people = hiddenPeople
+        collectionView.reloadData()
     }
 }
 
