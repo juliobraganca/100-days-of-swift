@@ -15,5 +15,3 @@ UserDefaults, JSON, NSCoding, Codable
 >1. [Challenge 1](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/15-Project12/Challenge1/Project01-UserDefaults)
 >2. [Challenge 2](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/15-Project12/Challenge2/Project02-UserDefaults)
 >3. [Challenge 3](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/15-Project12/Challenge3/Project05-UserDefaults)
-
-## Screenshots
