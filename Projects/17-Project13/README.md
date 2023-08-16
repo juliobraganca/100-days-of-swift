@@ -14,3 +14,5 @@ From [Hacking with Swift](https://www.hackingwithswift.com/read/13/6/wrap-up):
 >3. Experiment with having more than one slider, to control each of the input keys you care about. For example, you might have one for radius and one for intensity.
 
 ## Screenshots
+![Screenshot 2023-08-16 at 10 53 07](https://github.com/juliobraganca/100-days-of-swift/assets/127988357/69cb8da6-2afd-48ac-94cc-b17750e9d153)
+![Screenshot 2023-08-16 at 10 53 28](https://github.com/juliobraganca/100-days-of-swift/assets/127988357/72499de3-5536-49ff-b56f-513d8a21c67f)
