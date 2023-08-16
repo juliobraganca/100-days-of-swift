@@ -40,7 +40,7 @@ ___
 <br><sub>UICollectionView, UIImagePickerController, NSObject<sub/>
 - [Project 11: Pachinko](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/14-Project11)
 <br><sub>SpriteKit, Nodes, UITouch, Physics Body, SKAction, Collisions, Emitters<sub/>
-- [Project 12: UserDefaults](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/15-Project12):
+- [Project 12: UserDefaults](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/15-Project12)
 <br><sub>UserDefaults, JSON, NSCoding, Codable<sub/>
 
 ### Images and animation
