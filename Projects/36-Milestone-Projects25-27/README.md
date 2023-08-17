@@ -18,3 +18,8 @@ From [Hacking with Swift](https://www.hackingwithswift.com/guide/10/3/challenge)
 >Both the top and bottom pieces of text should be optional; the user doesn’t need to provide them if they don’t want to.
 
 ## Screenshots
+<img width="282" alt="Screenshot 2023-08-17 at 18 36 05" src="https://github.com/juliobraganca/100-days-of-swift/assets/127988357/22ff6b52-1ed3-48db-9e23-dba4178c1e7a">
+<img width="282" alt="Screenshot 2023-08-17 at 18 36 16" src="https://github.com/juliobraganca/100-days-of-swift/assets/127988357/02f416f6-7103-465a-9c40-f1b23d4b2b3d">
+<img width="282" alt="Screenshot 2023-08-17 at 18 36 24" src="https://github.com/juliobraganca/100-days-of-swift/assets/127988357/17a55afa-9c01-4554-a4c5-c952a35e9145">
+<img width="282" alt="Screenshot 2023-08-17 at 18 36 32" src="https://github.com/juliobraganca/100-days-of-swift/assets/127988357/df27a3d6-e280-426c-898e-8efbc9bdbaf1">
+<img width="282" alt="Screenshot 2023-08-17 at 18 36 36" src="https://github.com/juliobraganca/100-days-of-swift/assets/127988357/251c388d-bd12-4c6f-acbc-b6c666b17638">
