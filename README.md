@@ -15,6 +15,7 @@ ___
 <br><sub>UIButton, CALayer, IBAction<sub/>
 - [Project 3: Social Media](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/03-Project03)
 <br><sub>UIBarButtonItem, UIActivityController<sub/>
+- [Milestone - Projects 1-3](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/04-Milestone-Projects01-03)
 
 ### Web views, user input, and Auto Layout
 - [Project 4: Easy Browser](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/05-Project04)
@@ -26,6 +27,8 @@ ___
 
   - [Project 6A: Guess the Flag Extended](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/07a-Project06a)
   - [Project 6B: Auto Layout](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/07b-Project06b)
+
+- [Milestone - Projects 4-6](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/08-Milestone-Projects04-06)
  
 ### Codable, buttons and GCD
 - [Project 7: Whitehouse Petitions](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/09-Project07)
@@ -34,6 +37,7 @@ ___
 <br><sub>UI in code, Text alignment, Layout Margins, UIFont	<sub/>
 - [Project 9: Grand Central Dispatch](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/11-Project09)
 <br><sub>Grand Central Dispatch, PerformSelector<sub/>
+- [Milestone - Projects 7-9](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/12-Milestone-Projects07-09)
 
 ### A whole new world
 - [Project 10: Names to Faces](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/13-Project10)
@@ -42,6 +46,7 @@ ___
 <br><sub>SpriteKit, Nodes, UITouch, Physics Body, SKAction, Collisions, Emitters<sub/>
 - [Project 12: UserDefaults](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/15-Project12)
 <br><sub>UserDefaults, JSON, NSCoding, Codable<sub/>
+- [Milestone - Projects 10-12](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/16-Milestone-Projects10-12)
 
 ### Images and animation
 - [Project 13: Instafilter](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/17-Project13)
@@ -50,6 +55,7 @@ ___
 <br><sub>SKCropNode, SKTexture, SKAction<sub/>
 - [Project 15: Animation](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/19-Project15)
 <br><sub>Animation, CGAffineTransform<sub/>
+- [Milestone - Projects 13-15](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/20-Milestone-Projects13-15)
 
 ### Maps and bugs
 - [Project 16: Capital Cities](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/21-Project16)
@@ -58,6 +64,7 @@ ___
 <br><sub>Collisions, Timer, Linear / Angular damping<sub/>
 - [Project 18: Debugging](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/23-Project18)
 <br><sub>Debugging Skills<sub/>
+- [Milestone - Projects 16-18](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/24-Milestone-Projects16-18)
 
 ### Leveling up
 - [Project 19: JavaScript Injection](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/25-Project19)
@@ -66,6 +73,7 @@ ___
 <br><sub>UIBezierPath, SKAction follow, Emitter nodes<sub/>
 - [Project 21: Local Notifications](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/27-Project21)
 <br><sub>Notifications, UNUserNotificationCenter, UNNotificationRequest<sub/>
+- [Milestone - Projects 19-21](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/28-Milestone-Projects19-21)
   
 ### Beacons and bombs
 - [Project 22: Detect-a-beacon](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/29-Project22)
@@ -74,6 +82,7 @@ ___
 <br><sub>SKShapeNode, AVAudioPlayer, CGPath, UIBezierPath, SKTexture<sub/>
 - [Project 24: Swift Strings](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/31-Project24)
 <br><sub>Strings, NSAttributedString<sub/>
+- [Milestone - Projects 22-24](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/32-Milestone-Projects22-24)
 
 ### Multipeer and motion
 - [Project 25: Selfie Share](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/33-Project25)
@@ -82,6 +91,7 @@ ___
 <br><sub>Accelerometer, CMMotionManager, Load level from file, Physics Bitmasks<sub/>
 - [Project 27: Core Graphics](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/35-Project27)
 <br><sub>Core Graphics, UIGraphicsImageRenderer, Fills and Strokes, Transforms<sub/>
+- [Milestone - Projects 25-27](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/36-Milestone-Projects25-27)
 
 ### The Final Countdown
 - [Project 28: Secret Swift](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/37-Project28)
@@ -90,6 +100,7 @@ ___
 <br><sub>SKTexture, Filling a path, Mixing UIKit and SpriteKit, Texture atlases<sub/>
 - [Project 30: Instruments](https://github.com/juliobraganca/100-days-of-swift/tree/main/Projects/39-Project30)
 <br><sub>Instruments, Time Profiler, Allocations, Shadows, Table cells in code<sub/>
+- Milestone - Projects 28-30 (MISSING)
 ___
 
 ## Conclusion
