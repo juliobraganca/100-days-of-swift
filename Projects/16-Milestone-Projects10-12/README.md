@@ -9,3 +9,7 @@ From [Hacking with Swift](https://www.hackingwithswift.com/guide/5/3/challenge):
 
 
 ## Screenshots
+![Screenshot 2023-08-17 at 19 24 13](https://github.com/juliobraganca/100-days-of-swift/assets/127988357/25096668-8a9a-4755-b054-9a26f070efa1)
+![Screenshot 2023-08-17 at 19 24 23](https://github.com/juliobraganca/100-days-of-swift/assets/127988357/a7e74a5f-e0a4-4a5d-921d-d1fc650a452b)
+![Screenshot 2023-08-17 at 19 24 32](https://github.com/juliobraganca/100-days-of-swift/assets/127988357/93f1c685-0573-45cf-8caa-836e30687f6e)
+![Screenshot 2023-08-17 at 19 24 37](https://github.com/juliobraganca/100-days-of-swift/assets/127988357/f0a3bf96-29c4-413f-8eda-65b0d3efbc23)
