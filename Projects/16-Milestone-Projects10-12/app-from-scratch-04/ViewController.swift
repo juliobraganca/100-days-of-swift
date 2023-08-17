@@ -58,8 +58,8 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     @objc func addImage(){
         let picker = UIImagePickerController()
         
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            picker.sourceType = .camera
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            picker.sourceType = .photoLibrary
         } else {
             picker.sourceType = .photoLibrary
         }
@@ -72,17 +72,18 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
         
-        let randomImageName = UUID().uuidString
-        let imagePath = Bundle.main.documentsDirectory.appendingPathComponent(randomImageName)
+        let randomImageName = "\(UUID().uuidString).jpeg" // Append .jpeg extension to the filename
+        let imagePath = Bundle.main.documentsDirectory.appendingPathComponent(randomImageName) // Construct the path
         
         if let jpegData = image.jpegData(compressionQuality: 0.8) {
-            try? jpegData.write(to: imagePath)
+            try? jpegData.write(to: imagePath) // Save the image data to the constructed path
         }
         
-        dismiss(animated: true)
+        dismiss(animated: true) // Dismiss the image picker
         
-        showNameAlert(forImage: randomImageName)
+        showNameAlert(forImage: randomImageName) // This can be used to give a user-friendly name if needed but isn't essential for the saving/loading mechanism
     }
+
     
     func showNameAlert(forImage image: String) {
         let nameAlert = UIAlertController(title: nil, message: "What would you like the picture name to be?", preferredStyle: .alert)
@@ -92,7 +93,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             UIAlertAction(title: "Ok", style: .default) { [weak self, weak nameAlert] _ in
                 guard let name = nameAlert?.textFields?.first?.text else { return }
                 
-                let image = Image(imageName: name, image: image)
+                let image = Image(imageName: name, imageFileName: image)
                 self?.pictures.append(image)
                 
                 self?.savePhotoEntries()

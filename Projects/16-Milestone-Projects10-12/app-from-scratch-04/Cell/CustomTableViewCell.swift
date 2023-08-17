@@ -25,6 +25,7 @@ class CustomTableViewCell: UITableViewCell {
     
     func setupCell(_ data: Image) {
         nameLabel.text = data.imageName
+        print("attempting to load image from: \(data.imagePath)")
         previewImageView.image = UIImage(contentsOfFile: data.imagePath)
     }
     

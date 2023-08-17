@@ -9,9 +9,9 @@ import Foundation
 
 struct Image: Codable {
     var imageName: String
-    var image: String
+    var imageFileName: String
 
     var imagePath: String {
-        return Bundle.main.documentsDirectory.appendingPathExtension(image).path()
+        return Bundle.main.documentsDirectory.appendingPathComponent(imageFileName).path
     }
 }

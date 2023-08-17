@@ -9,6 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
+    
     var selectedImage: Image?
     
     
@@ -16,7 +17,8 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         if let selectedImage = selectedImage {
-            imageView.image = UIImage(named: selectedImage.imagePath)
+            print("Attempting to load detail image from: \(selectedImage.imagePath)")
+            imageView.image = UIImage(contentsOfFile: selectedImage.imagePath)
         }
 
     }
